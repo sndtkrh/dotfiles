@@ -5,5 +5,20 @@
 .DS_Store
 
 build
+._bcdi
+._d
+._ncdi
 
 *.o
+
+*.cmi
+*.cmo
+*.cmx
+
+*.aux
+*.dvi
+*.log
+*.nav
+*.toc
+*.snm
+*.pdf
