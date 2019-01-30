@@ -1,12 +1,61 @@
+
+;; Added by Package.el.  This must come before configurations of
+;; installed packages.  Don't delete this line.  If you don't want it,
+;; just comment it out by adding a semicolon to the start of the line.
+;; You may delete these explanatory comments.
+(package-initialize)
+(when load-file-name
+  (setq user-emacs-directory (file-name-directory load-file-name)))
+
+
 (line-number-mode t) 
 (column-number-mode t)
-
 (menu-bar-mode 0)
 
-; OCaml
+;; EL-Get
+(add-to-list 'load-path (locate-user-emacs-file "el-get/el-get"))
+(unless (require 'el-get nil 'noerror)
+  (with-current-buffer
+      (url-retrieve-synchronously
+       "https://raw.githubusercontent.com/dimitri/el-get/master/el-get-install.el")
+    (goto-char (point-max))
+    (eval-print-last-sexp)))
+
+;; OCaml
+;; tuareg-mode
 (load "/home/i/.opam/default/share/emacs/site-lisp/tuareg-site-file")
 (add-to-list 'auto-mode-alist '("\\.ml[iylp]?$" . tuareg-mode))
 (autoload 'tuareg-mode "tuareg" "Major mode for editing OCaml code." t)
 (autoload 'tuareg-run-ocaml "tuareg" "Run an inferior OCaml process." t)
 (autoload 'ocamldebug "ocamldebug" "Run the OCaml debugger." t)
 
+;; Haskell
+;; haskell-mode
+(el-get-bundle haskell-mode)
+(autoload 'haskell-mode "haskell-mode" nil t)
+(autoload 'haskell-cabal "haskell-cabal" nil t)
+(add-to-list 'auto-mode-alist '("\\.hs$" . haskell-mode))
+(add-to-list 'auto-mode-alist '("\\.lhs$" . literate-haskell-mode))
+(add-to-list 'auto-mode-alist '("\\.cabal$" . haskell-cabal-mode))
+;; ghc-mod
+;; (autoload 'ghc-init "ghc" nil t)
+;; (autoload 'ghc-debug "ghc" nil t)
+
+(require 'package)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-archives
+   (quote
+    (("gnu" . "http://elpa.gnu.org/packages/")
+     ("melpa-stable" . "http://stable.melpa.org/packages/"))))
+ '(package-selected-packages (quote (haskell-mode))))
+(package-initialize)
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
