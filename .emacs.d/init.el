@@ -7,6 +7,13 @@
 (when load-file-name
   (setq user-emacs-directory (file-name-directory load-file-name)))
 
+(global-set-key (kbd "C-c -") 'split-window-vertically)
+(global-set-key (kbd "C-c |") 'split-window-horizontally)
+(global-set-key (kbd "C-c h")  'windmove-left)
+(global-set-key (kbd "C-c j")  'windmove-down)
+(global-set-key (kbd "C-c k")    'windmove-up)
+(global-set-key (kbd "C-c l") 'windmove-right)
+
 
 (line-number-mode t) 
 (column-number-mode t)
@@ -20,6 +27,16 @@
        "https://raw.githubusercontent.com/dimitri/el-get/master/el-get-install.el")
     (goto-char (point-max))
     (eval-print-last-sexp)))
+
+;; Flycheck
+(el-get-bundle flycheck)
+
+;; neotree
+(el-get-bundle neotree)
+(add-to-list 'load-path "el-get/neotree")
+(require 'neotree)
+(global-set-key "\C-t" 'neotree-toggle)
+(setq neo-show-hidden-files t)
 
 ;; OCaml
 ;; tuareg-mode
