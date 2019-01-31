@@ -7,14 +7,6 @@
 (when load-file-name
   (setq user-emacs-directory (file-name-directory load-file-name)))
 
-(global-set-key (kbd "C-c -") 'split-window-vertically)
-(global-set-key (kbd "C-c |") 'split-window-horizontally)
-(global-set-key (kbd "C-c h")  'windmove-left)
-(global-set-key (kbd "C-c j")  'windmove-down)
-(global-set-key (kbd "C-c k")    'windmove-up)
-(global-set-key (kbd "C-c l") 'windmove-right)
-
-
 (line-number-mode t) 
 (column-number-mode t)
 (menu-bar-mode 0)
@@ -63,6 +55,15 @@
 ;; ghc-mod
 ;; (autoload 'ghc-init "ghc" nil t)
 ;; (autoload 'ghc-debug "ghc" nil t)
+
+
+;; key binds
+(global-set-key (kbd "C-c C-w -") 'split-window-vertically)
+(global-set-key (kbd "C-c C-w |") 'split-window-horizontally)
+(global-set-key (kbd "C-c h")  'windmove-left)
+(global-set-key (kbd "C-c j")  'windmove-down)
+(global-set-key (kbd "C-c k")    'windmove-up)
+(global-set-key (kbd "C-c l") 'windmove-right)
 
 (require 'package)
 (custom-set-variables
