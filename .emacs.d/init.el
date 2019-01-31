@@ -30,11 +30,11 @@
 
 ;; Flycheck
 (el-get-bundle flycheck)
+(add-hook 'after-init-hook #'global-flycheck-mode)
 
 ;; neotree
 (el-get-bundle neotree)
 (add-to-list 'load-path "el-get/neotree")
-(require 'neotree)
 (global-set-key "\C-t" 'neotree-toggle)
 (setq neo-show-hidden-files t)
 
