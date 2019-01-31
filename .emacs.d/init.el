@@ -32,11 +32,17 @@
 (el-get-bundle flycheck)
 (add-hook 'after-init-hook #'global-flycheck-mode)
 
-;; neotree
+;; NeoTree
 (el-get-bundle neotree)
 (add-to-list 'load-path "el-get/neotree")
 (global-set-key "\C-t" 'neotree-toggle)
 (setq neo-show-hidden-files t)
+
+;; Markdown
+;; markdown-mode
+(el-get-bundle markdown-mode)
+(add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
 
 ;; OCaml
 ;; tuareg-mode
