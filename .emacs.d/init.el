@@ -8,7 +8,7 @@
   (setq user-emacs-directory (file-name-directory load-file-name)))
 (add-to-list 'load-path "~/.emacs.d/lisp/")
 
-(line-number-mode t) 
+(line-number-mode t)
 (column-number-mode t)
 (menu-bar-mode 0)
 
@@ -20,6 +20,18 @@
        "https://raw.githubusercontent.com/dimitri/el-get/master/el-get-install.el")
     (goto-char (point-max))
     (eval-print-last-sexp)))
+
+;; company-mode
+(el-get-bundle company)
+(global-company-mode)
+(setq company-idle-delay 0)
+(setq company-minimum-prefix-length 2)
+(setq company-selection-wrap-around t)
+(setq company-dabbrev-downcase nil)
+(define-key company-active-map (kbd "M-n") nil)
+(define-key company-active-map (kbd "M-p") nil)
+(define-key company-active-map (kbd "C-n") 'company-select-next)
+(define-key company-active-map (kbd "C-p") 'company-select-previous)
 
 ;; Flycheck
 (el-get-bundle flycheck)
@@ -54,8 +66,12 @@
 (add-to-list 'auto-mode-alist '("\\.lhs$" . literate-haskell-mode))
 (add-to-list 'auto-mode-alist '("\\.cabal$" . haskell-cabal-mode))
 ;; ghc-mod
-;; (autoload 'ghc-init "ghc" nil t)
-;; (autoload 'ghc-debug "ghc" nil t)
+(autoload 'ghc-init "ghc" nil t)
+(autoload 'ghc-debug "ghc" nil t)
+;; company-ghc
+(el-get-bundle company-ghc)
+(add-to-list 'company-backends 'company-ghc)
+
 
 ;; SATySFi
 (add-to-list 'load-path (locate-user-emacs-file "satysfi.el"))
@@ -66,19 +82,6 @@
   ; set the command for typesetting (default: "satysfi -b")
 (setq satysfi-pdf-viewer-command "sumatrapdf")
   ; set the command for opening PDF files (default: "open")
-
-;; company-mode
-(el-get-bundle company)
-(global-company-mode)
-(setq company-idle-delay 0)
-(setq company-minimum-prefix-length 2)
-(setq company-selection-wrap-around t)
-(setq company-dabbrev-downcase nil)
-(define-key company-active-map (kbd "M-n") nil)
-(define-key company-active-map (kbd "M-p") nil)
-(define-key company-active-map (kbd "C-n") 'company-select-next)
-(define-key company-active-map (kbd "C-p") 'company-select-previous)
-
 
 ;; key binds
 (global-set-key (kbd "C-c C-w -") 'split-window-vertically)
