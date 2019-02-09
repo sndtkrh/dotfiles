@@ -67,6 +67,18 @@
 (setq satysfi-pdf-viewer-command "sumatrapdf")
   ; set the command for opening PDF files (default: "open")
 
+;; company-mode
+(el-get-bundle company)
+(global-company-mode)
+(setq company-idle-delay 0)
+(setq company-minimum-prefix-length 2)
+(setq company-selection-wrap-around t)
+(define-key company-active-map (kbd "M-n") nil)
+(define-key company-active-map (kbd "M-p") nil)
+(define-key company-active-map (kbd "C-n") 'company-select-next)
+(define-key company-active-map (kbd "C-p") 'company-select-previous)
+
+
 ;; key binds
 (global-set-key (kbd "C-c C-w -") 'split-window-vertically)
 (global-set-key (kbd "C-c C-w |") 'split-window-horizontally)
