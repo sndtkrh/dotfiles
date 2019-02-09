@@ -6,6 +6,7 @@
 (package-initialize)
 (when load-file-name
   (setq user-emacs-directory (file-name-directory load-file-name)))
+(add-to-list 'load-path "~/.emacs.d/lisp/")
 
 (line-number-mode t) 
 (column-number-mode t)
@@ -38,7 +39,7 @@
 
 ;; OCaml
 ;; tuareg-mode
-(load "/home/i/.opam/default/share/emacs/site-lisp/tuareg-site-file")
+(load "~/.opam/default/share/emacs/site-lisp/tuareg-site-file")
 (add-to-list 'auto-mode-alist '("\\.ml[iylp]?$" . tuareg-mode))
 (autoload 'tuareg-mode "tuareg" "Major mode for editing OCaml code." t)
 (autoload 'tuareg-run-ocaml "tuareg" "Run an inferior OCaml process." t)
@@ -56,6 +57,15 @@
 ;; (autoload 'ghc-init "ghc" nil t)
 ;; (autoload 'ghc-debug "ghc" nil t)
 
+;; SATySFi
+(add-to-list 'load-path (locate-user-emacs-file "satysfi.el"))
+(require 'satysfi)
+(add-to-list 'auto-mode-alist '("\\.saty$" . satysfi-mode))
+(add-to-list 'auto-mode-alist '("\\.satyh$" . satysfi-mode))
+(setq satysfi-command "satysfi")
+  ; set the command for typesetting (default: "satysfi -b")
+(setq satysfi-pdf-viewer-command "sumatrapdf")
+  ; set the command for opening PDF files (default: "open")
 
 ;; key binds
 (global-set-key (kbd "C-c C-w -") 'split-window-vertically)
