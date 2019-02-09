@@ -75,6 +75,10 @@
 (global-set-key (kbd "C-c k")    'windmove-up)
 (global-set-key (kbd "C-c l") 'windmove-right)
 
+;; tab
+(setq-default indent-tabs-mode nil)
+(setq-default tab-width 2)
+
 (require 'package)
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
