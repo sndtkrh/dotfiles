@@ -12,6 +12,24 @@
 (column-number-mode t)
 (menu-bar-mode 0)
 
+(defun replace-japanese-punctuation-marks ()
+  "Replace \"、\" and \"。\" by and \"，\" and \"．\" respectively."
+  (interactive)
+  (let ((curpos (point)))
+    (goto-char (point-min))
+    (while (search-forward "。" nil t) (replace-match "．"))
+    
+    (goto-char (point-min))
+    (while (search-forward "、" nil t) (replace-match "，"))
+    (goto-char curpos)))
+
+(add-hook 'tex-mode-hook
+   '(lambda ()
+       (add-hook 'before-save-hook 'replace-japanese-punctuation-marks nil 'make-it-local)))
+(add-hook 'satysfi-mode-hook
+   '(lambda ()
+       (add-hook 'before-save-hook 'replace-japanese-punctuation-marks nil 'make-it-local)))
+
 ;; EL-Get
 (add-to-list 'load-path (locate-user-emacs-file "el-get/el-get"))
 (unless (require 'el-get nil 'noerror)
