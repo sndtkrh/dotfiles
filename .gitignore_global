@@ -24,3 +24,5 @@ build
 *.toc
 *.snm
 *.pdf
+*.bbl
+*.blg
