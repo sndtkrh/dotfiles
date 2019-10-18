@@ -92,14 +92,14 @@
 
 
 ;; SATySFi
-(add-to-list 'load-path (locate-user-emacs-file "satysfi.el"))
-(require 'satysfi)
-(add-to-list 'auto-mode-alist '("\\.saty$" . satysfi-mode))
-(add-to-list 'auto-mode-alist '("\\.satyh$" . satysfi-mode))
-(setq satysfi-command "satysfi")
-  ; set the command for typesetting (default: "satysfi -b")
-(setq satysfi-pdf-viewer-command "sumatrapdf")
-  ; set the command for opening PDF files (default: "open")
+;; (add-to-list 'load-path (locate-user-emacs-file "satysfi.el"))
+;; (require 'satysfi)
+;; (add-to-list 'auto-mode-alist '("\\.saty$" . satysfi-mode))
+;; (add-to-list 'auto-mode-alist '("\\.satyh$" . satysfi-mode))
+;; (setq satysfi-command "satysfi")
+;;   ; set the command for typesetting (default: "satysfi -b")
+;; (setq satysfi-pdf-viewer-command "sumatrapdf")
+;;   ; set the command for opening PDF files (default: "open")
 
 ;; key binds
 (global-set-key (kbd "C-c C-w -") 'split-window-vertically)

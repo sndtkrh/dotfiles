@@ -12,8 +12,15 @@ if [ -e ~/.bashrc.aliases ] ; then
    source ~/.bashrc.aliases
 fi
 
-BROWSER=/usr/bin/chromium
-EDITOR=/usr/bin/emacs
+export BROWSER=/usr/bin/chromium
+export EDITOR=/usr/bin/emacs
 
 # my alias
+
+## emacs
 alias emacs="emacs -nw"
+
+## japanese input
+export GTK_IM_MODULE=fcitx
+export XMODIFIERS=@im=fcitx
+export QT_IM_MODULE=fcitx
