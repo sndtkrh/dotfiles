@@ -75,6 +75,11 @@
 (autoload 'tuareg-run-ocaml "tuareg" "Run an inferior OCaml process." t)
 (autoload 'ocamldebug "ocamldebug" "Run the OCaml debugger." t)
 
+;; Proof general
+(el-get-bundle proof-general)
+;; time of splash screen
+(setq proof-splash-time 3)
+
 ;; Haskell
 ;; haskell-mode
 (el-get-bundle haskell-mode)
@@ -89,7 +94,6 @@
 ;; company-ghc
 (el-get-bundle company-ghc)
 (add-to-list 'company-backends 'company-ghc)
-
 
 ;; SATySFi
 ;; (add-to-list 'load-path (locate-user-emacs-file "satysfi.el"))
