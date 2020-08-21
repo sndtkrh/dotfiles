@@ -52,8 +52,8 @@
 (define-key company-active-map (kbd "C-p") 'company-select-previous)
 
 ;; Flycheck
-(el-get-bundle flycheck)
-(add-hook 'after-init-hook #'global-flycheck-mode)
+; (el-get-bundle flycheck)
+; (add-hook 'after-init-hook #'global-flycheck-mode)
 
 ;; NeoTree
 (el-get-bundle neotree)
@@ -69,7 +69,7 @@
 
 ;; OCaml
 ;; tuareg-mode
-(load "~/.opam/default/share/emacs/site-lisp/tuareg-site-file")
+(load "~/.opam/4.07.1/share/emacs/site-lisp/tuareg-site-file")
 (add-to-list 'auto-mode-alist '("\\.ml[iylp]?$" . tuareg-mode))
 (autoload 'tuareg-mode "tuareg" "Major mode for editing OCaml code." t)
 (autoload 'tuareg-run-ocaml "tuareg" "Run an inferior OCaml process." t)
@@ -94,6 +94,10 @@
 ;; company-ghc
 (el-get-bundle company-ghc)
 (add-to-list 'company-backends 'company-ghc)
+
+;; React
+(el-get-bundle rjsx-mode)
+(add-to-list 'auto-mode-alist '(".*\\.js\\'" . rjsx-mode))
 
 ;; SATySFi
 ;; (add-to-list 'load-path (locate-user-emacs-file "satysfi.el"))
@@ -135,3 +139,4 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+(put 'upcase-region 'disabled nil)
