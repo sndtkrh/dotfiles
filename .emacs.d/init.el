@@ -75,6 +75,10 @@
 (autoload 'tuareg-run-ocaml "tuareg" "Run an inferior OCaml process." t)
 (autoload 'ocamldebug "ocamldebug" "Run the OCaml debugger." t)
 
+;; ReasonML
+(el-get-bundle reasonml-editor/reason-mode)
+(add-to-list 'auto-mode-alist '("\\.re$" . reason-mode))
+
 ;; Proof general
 (el-get-bundle proof-general)
 ;; time of splash screen
