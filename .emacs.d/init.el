@@ -69,35 +69,35 @@
 
 ;; OCaml
 ;; tuareg-mode
-(load "~/.opam/4.07.1/share/emacs/site-lisp/tuareg-site-file")
-(add-to-list 'auto-mode-alist '("\\.ml[iylp]?$" . tuareg-mode))
-(autoload 'tuareg-mode "tuareg" "Major mode for editing OCaml code." t)
-(autoload 'tuareg-run-ocaml "tuareg" "Run an inferior OCaml process." t)
-(autoload 'ocamldebug "ocamldebug" "Run the OCaml debugger." t)
+; (load "~/.opam/4.07.1/share/emacs/site-lisp/tuareg-site-file")
+; (add-to-list 'auto-mode-alist '("\\.ml[iylp]?$" . tuareg-mode))
+; (autoload 'tuareg-mode "tuareg" "Major mode for editing OCaml code." t)
+; (autoload 'tuareg-run-ocaml "tuareg" "Run an inferior OCaml process." t)
+; (autoload 'ocamldebug "ocamldebug" "Run the OCaml debugger." t)
 
 ;; ReasonML
 (el-get-bundle reasonml-editor/reason-mode)
 (add-to-list 'auto-mode-alist '("\\.re$" . reason-mode))
 
 ;; Proof general
-(el-get-bundle proof-general)
+; (el-get-bundle proof-general)
 ;; time of splash screen
-(setq proof-splash-time 3)
+; (setq proof-splash-time 3)
 
 ;; Haskell
 ;; haskell-mode
-(el-get-bundle haskell-mode)
-(autoload 'haskell-mode "haskell-mode" nil t)
-(autoload 'haskell-cabal "haskell-cabal" nil t)
-(add-to-list 'auto-mode-alist '("\\.hs$" . haskell-mode))
-(add-to-list 'auto-mode-alist '("\\.lhs$" . literate-haskell-mode))
-(add-to-list 'auto-mode-alist '("\\.cabal$" . haskell-cabal-mode))
+; (el-get-bundle haskell-mode)
+; (autoload 'haskell-mode "haskell-mode" nil t)
+; (autoload 'haskell-cabal "haskell-cabal" nil t)
+; (add-to-list 'auto-mode-alist '("\\.hs$" . haskell-mode))
+; (add-to-list 'auto-mode-alist '("\\.lhs$" . literate-haskell-mode))
+; (add-to-list 'auto-mode-alist '("\\.cabal$" . haskell-cabal-mode))
 ;; ghc-mod
-(autoload 'ghc-init "ghc" nil t)
-(autoload 'ghc-debug "ghc" nil t)
+; (autoload 'ghc-init "ghc" nil t)
+; (autoload 'ghc-debug "ghc" nil t)
 ;; company-ghc
-(el-get-bundle company-ghc)
-(add-to-list 'company-backends 'company-ghc)
+; (el-get-bundle company-ghc)
+; (add-to-list 'company-backends 'company-ghc)
 
 ;; React
 (el-get-bundle rjsx-mode)
