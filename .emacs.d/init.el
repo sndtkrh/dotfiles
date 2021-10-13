@@ -1,4 +1,3 @@
-
 ;; Added by Package.el.  This must come before configurations of
 ;; installed packages.  Don't delete this line.  If you don't want it,
 ;; just comment it out by adding a semicolon to the start of the line.
@@ -84,14 +83,22 @@
 ;; time of splash screen
 ; (setq proof-splash-time 3)
 
+;; Agda
+(load-file (let ((coding-system-for-read 'utf-8))
+           (shell-command-to-string "agda-mode locate")))
+
 ;; Haskell
 ;; haskell-mode
-; (el-get-bundle haskell-mode)
+(el-get-bundle haskell-mode)
 ; (autoload 'haskell-mode "haskell-mode" nil t)
 ; (autoload 'haskell-cabal "haskell-cabal" nil t)
-; (add-to-list 'auto-mode-alist '("\\.hs$" . haskell-mode))
+(add-to-list 'auto-mode-alist '("\\.hs$" . haskell-mode))
+(custom-set-variables '(haskell-mode-hook '(turn-on-haskell-indentation)))
 ; (add-to-list 'auto-mode-alist '("\\.lhs$" . literate-haskell-mode))
 ; (add-to-list 'auto-mode-alist '("\\.cabal$" . haskell-cabal-mode))
+(require 'haskell-interactive-mode)
+(require 'haskell-process)
+(add-hook 'haskell-mode-hook 'interactive-haskell-mode)
 ;; ghc-mod
 ; (autoload 'ghc-init "ghc" nil t)
 ; (autoload 'ghc-debug "ghc" nil t)
@@ -131,6 +138,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(inhibit-startup-screen t)
  '(package-archives
    (quote
     (("gnu" . "http://elpa.gnu.org/packages/")
@@ -144,3 +152,9 @@
  ;; If there is more than one, they won't work right.
  )
 (put 'upcase-region 'disabled nil)
+(put 'downcase-region 'disabled nil)
+
+;; spell checker
+(setq-default ispell-program-name "aspell") 
+(dolist (hook '(tex-mode-hook))
+  (add-hook hook (lambda () (flyspell-mode 1))))
